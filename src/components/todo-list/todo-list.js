@@ -1,5 +1,5 @@
 import React from "react";
-import TodoListItem from '../todo-list-item';
+import TodoListItemFunc from '../todo-list-item';
 import './todo-list.css'
 
 const TodoList = ({todos}) => {
@@ -9,7 +9,7 @@ const TodoList = ({todos}) => {
             <li key={id} className="list-group-item">
                 {/*<TodoListItem label={item.label}*/}
                 {/*              important={item.important}/>*/}
-                <TodoListItem {...itemProps}/>
+                <TodoListItemFunc {...itemProps}/>
             </li>
         );
     });

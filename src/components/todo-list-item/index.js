@@ -1,2 +1,2 @@
-import TodoListItem from "./todo-list-item";
-export default TodoListItem;
+import TodoListItemFunc from "./todo-list-item-func";
+export default TodoListItemFunc;
