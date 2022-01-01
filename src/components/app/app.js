@@ -4,10 +4,12 @@ import AppHeader from "../app-header";
 import SearchPanel from "../search-panel";
 import TodoList from "../todo-list";
 import ItemStatusFilter from '../item-status-filter';
+import ItemAddForm from "../item-add-form";
 
 import './app.css'
 
 export default class App extends Component {
+    maxId = 100;
     state = {
         todoData: [
             {label: 'Drink Coffee', important: false, id: 1},
@@ -16,20 +18,36 @@ export default class App extends Component {
             {label: 'Dont forget Spring', important: false, id: 4}
         ]
     };
-
     deleteItem = (id) => {
         this.setState(({todoData}) => {
-            const idx = todoData.findIndex((el) => el.id === id);
-            todoData.splice(idx, 1);
-
-            const before = todoData.slice(0, idx);
-            const after = todoData.slice(idx + 1);
+            //the index of the element we want to delete
+            const idx = todoData.findIndex((el) => id === el.id);
+            const before = todoData.slice(0, idx);//all work good
+            const after = todoData.slice(idx + 1)
             const newArray = [...before, ...after];
             return {
                 todoData: newArray
-            }
+            };
         });
     };
+    addItem = (text) => {
+        //generate id
+        const newItem = {
+            label: text,
+            important: false,
+            id: this.maxId++
+        };
+        //add element to array
+        this.setState(({todoData}) => {
+            const newArray = [
+                ...todoData,
+                newItem
+            ];
+            return {
+                todoData: newArray
+            };
+        });
+    }
 
     render() {
         return (
@@ -40,9 +58,12 @@ export default class App extends Component {
                     <ItemStatusFilter/>
                 </div>
                 <TodoList
+                    //todoData is part os state
                     todos={this.state.todoData}
+                    //event listener
                     onDeleted={this.deleteItem}/>
+                <ItemAddForm onItemAdded={this.addItem}/>
             </div>
         );
-    }
+    };
 };

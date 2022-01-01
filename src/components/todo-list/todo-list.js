@@ -1,5 +1,5 @@
 import React from "react";
-import TodoListItemFunc from '../todo-list-item';
+import TodoListItem from '../todo-list-item';
 import './todo-list.css'
 
 const TodoList = ({todos, onDeleted}) => {
@@ -9,9 +9,10 @@ const TodoList = ({todos, onDeleted}) => {
             <li key={id} className="list-group-item">
                 {/*<TodoListItem label={item.label}*/}
                 {/*              important={item.important}/>*/}
-                <TodoListItemFunc
+                <TodoListItem
                     {...itemProps}
-                    onDeleted={() => onDeleted(id)}/>
+                    //add custom event
+                    onDeleted={() =>onDeleted(id)}/>
             </li>
         );
     });

@@ -53,7 +53,7 @@ export default class TodoListItem extends Component {
       </button>
 
       <button type="button"
-              className="btn btn-outline-danger btn-sm float-right"
+              className="btn btn-outline-danger btn-sm float-right"//add event listener onClick
               onClick={onDeleted}>
         <i className="fa fa-trash-o"/>
       </button>
