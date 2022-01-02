@@ -47,7 +47,14 @@ export default class App extends Component {
                 todoData: newArray
             };
         });
-    }
+    };
+
+    onToggleImportant = (id) => {
+        console.log('Toggle important', id);
+    };
+    onToggleDone = (id) => {
+        console.log('Toggle done', id);
+    };
 
     render() {
         return (
@@ -61,7 +68,10 @@ export default class App extends Component {
                     //todoData is part os state
                     todos={this.state.todoData}
                     //event listener
-                    onDeleted={this.deleteItem}/>
+                    onDeleted={this.deleteItem}
+                    onToggleImportant={this.onToggleImportant}
+                    onToggleDone={this.onToggleDone}
+                />
                 <ItemAddForm onItemAdded={this.addItem}/>
             </div>
         );

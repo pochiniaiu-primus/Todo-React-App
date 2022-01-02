@@ -1,7 +1,7 @@
 <App>              <- todoData
-    <AppHeader>
+    <AppHeader>    <- totalTodo, totalDone
     <SearchPanel>
     <ItemStatusFilter>
     <TodoList>
-             <TodoListItem>  <- Button
+             <TodoListItem>  <- done, important?
              <TodoListItem>
